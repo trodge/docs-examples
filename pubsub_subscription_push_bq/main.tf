@@ -4,7 +4,7 @@ resource "google_pubsub_topic" "example" {
 
 resource "google_pubsub_subscription" "example" {
   name  = "example-subscription-${local.name_suffix}"
-  topic = google_pubsub_topic.example.id
+  topic = google_pubsub_topic.example.name
 
   bigquery_config {
     table = "${google_bigquery_table.test.project}.${google_bigquery_table.test.dataset_id}.${google_bigquery_table.test.table_id}"
